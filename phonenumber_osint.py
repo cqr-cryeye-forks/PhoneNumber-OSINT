@@ -47,7 +47,7 @@ def loop(phone_number):
 
     if is_valid_number is True:
         print(f"Number {phone_number} is valid! Collecting Info ...")
-        result.append({"is_valid": True})
+        is_valid = True
 
         region = geocoder.description_for_number(parse, 'en', None)
         if not region:
@@ -64,7 +64,8 @@ def loop(phone_number):
             isp = ""
 
         result.append(
-            {"region": region,
+            {"is_valid": is_valid,
+             "region": region,
              "timezone": number_timezone,
              "internet_service_provider": isp
              })
@@ -78,7 +79,6 @@ def loop(phone_number):
 
 
 def main():
-
     args = parse_arguments()
     outputFile = args.output
     phone_number = args.number
