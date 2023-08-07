@@ -75,7 +75,8 @@ def loop(phone_number):
 
     else:
         print(f"Number {phone_number} is NOT valid! Exiting ...")
-        return result.append({"is_valid": False})
+        result.append({"is_valid": False})
+        return result
 
 
 def main():
